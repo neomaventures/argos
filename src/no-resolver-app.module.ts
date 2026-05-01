@@ -3,18 +3,20 @@ import { TypeOrmModule } from "@nestjs/typeorm"
 
 import { ArgosModule } from "@lib"
 
-import { AppController } from "./app.controller"
+import { WidgetController } from "./widgets/widget.controller"
+import { Widget } from "./widgets/widget.entity"
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: "sqlite",
       database: ":memory:",
-      entities: ["src/**/*.entity.ts"],
+      entities: [Widget],
       synchronize: true,
     }),
+    TypeOrmModule.forFeature([Widget]),
     ArgosModule.forRoot({}),
   ],
-  controllers: [AppController],
+  controllers: [WidgetController],
 })
-export class AppModule {}
+export class NoResolverAppModule {}
