@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
 
-import { CreatedBy, UpdatedBy } from "@lib"
+import { CreatedBy, UpdatedBy } from "../../libs/argos/src"
 
 @Entity()
 export class Widget {

@@ -12,7 +12,6 @@ export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } =
     .setClassMethodName("forRoot")
     .setExtras({}, (definition) => ({
       ...definition,
-      global: true,
       providers: [
         ...(definition.providers ?? []),
         {

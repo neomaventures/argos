@@ -1,5 +1,6 @@
 import { Module } from "@nestjs/common"
 import { TypeOrmModule } from "@nestjs/typeorm"
+import { type Request } from "express"
 
 import { ArgosModule } from "../libs/argos/src"
 
@@ -15,8 +16,12 @@ import { Widget } from "./widgets/widget.entity"
       synchronize: true,
     }),
     TypeOrmModule.forFeature([Widget]),
-    ArgosModule.forRoot({}),
+    ArgosModule.forRootAsync({
+      useFactory: (): { resolveActor: (req: Request) => string } => ({
+        resolveActor: (req: Request) => req.headers["x-actor"] as string,
+      }),
+    }),
   ],
   controllers: [WidgetController],
 })
-export class NoResolverAppModule {}
+export class ValueResolverAsyncAppModule {}

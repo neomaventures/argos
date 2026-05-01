@@ -33,6 +33,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@nestjs/common": "11.x",
-    "@nestjs/core": "11.x"
+    "@nestjs/core": "11.x",
+    "typeorm": "^0.3.20"
   }
 }

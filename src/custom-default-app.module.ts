@@ -15,8 +15,11 @@ import { Widget } from "./widgets/widget.entity"
       synchronize: true,
     }),
     TypeOrmModule.forFeature([Widget]),
-    ArgosModule.forRoot({}),
+    ArgosModule.forRoot({
+      defaultActor: "custom-default",
+      resolveActor: (req) => req.headers["x-actor"] as string,
+    }),
   ],
   controllers: [WidgetController],
 })
-export class NoResolverAppModule {}
+export class CustomDefaultAppModule {}

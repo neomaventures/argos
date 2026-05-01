@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common"
 import { TypeOrmModule } from "@nestjs/typeorm"
 
-import { ArgosModule } from "@lib"
+import { ArgosModule } from "../libs/argos/src"
 
 import { AppController } from "./app.controller"
 
