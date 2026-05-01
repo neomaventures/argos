@@ -28,7 +28,7 @@ export function actorColumn(
     const methodName = `__argos${name}_${String(propertyKey)}`
 
     Object.defineProperty(target, methodName, {
-      value: function (): void {
+      value: function (this: Record<PropertyKey, unknown>): void {
         this[propertyKey] = getActor()
       },
       writable: true,

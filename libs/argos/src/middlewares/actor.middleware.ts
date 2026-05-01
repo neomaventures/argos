@@ -1,5 +1,5 @@
 import { Inject, Injectable, NestMiddleware } from "@nestjs/common"
-import { NextFunction, Request, Response } from "express"
+import { type NextFunction, type Request, type Response } from "express"
 
 import { type ArgosOptions, ARGOS_OPTIONS } from "../argos.options"
 import { auditStore } from "../argos.store"

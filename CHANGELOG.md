@@ -45,14 +45,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bump NestJS packages (`common`, `core`, `platform-express`, `testing`) to ^11.1.18
 - Bump `@neoma/managed-app` to ^0.5.0
 - Bump `@types/node` to ^25.5.2
-- Fix dependabot lib directory path from `argos` to `argos`
+- Fix dependabot lib directory path from `package-template` to `argos`
 
 ## [0.3.3] - 2025-11-13
 
 ### Fixed
-- Update setup script to replace literal `argos` path references
+- Update setup script to replace literal `package-template` path references
 - Fix broken path mappings in tsconfig.json and Jest configs after setup
-- Remove circular dependency by replacing npm package import with @lib path alias
+- Remove circular dependency by replacing npm package import with `@lib` path alias
 
 ## [0.3.2] - 2025-11-13
 
@@ -73,8 +73,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.3.0] - 2025-11-12
 
 ### Fixed
-- Replace `argos` placeholder with buildable `argos` name
-- Update setup script to rename `libs/argos` instead of `libs/PACKAGE_NAME`
+- Replace `package-template` placeholder with buildable `argos` name
+- Update setup script to rename `libs/package-template` to `libs/argos`
 - Template now builds, tests, lints, and validates successfully
 
 ### Added
@@ -82,7 +82,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Complete package-lock.json for reproducible builds
 
 ### Changed
-- Directory structure uses `libs/argos` instead of `libs/PACKAGE_NAME`
+- Directory structure uses `libs/argos` instead of `libs/package-template`
 - All imports and references updated to use `@neoma/argos`
 
 ## [0.2.0] - 2025-11-12

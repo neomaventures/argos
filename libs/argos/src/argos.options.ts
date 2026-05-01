@@ -22,8 +22,8 @@ export const ARGOS_OPTIONS = Symbol("ARGOS_OPTIONS")
  */
 export interface ArgosOptions {
   /**
-   * The actor string used when `resolveActor` is not defined, returns
-   * `null`/`undefined`, or when no request context exists.
+   * The actor string used when `resolveActor` is not defined or returns
+   * `null`/`undefined`.
    *
    * @default "system"
    */
