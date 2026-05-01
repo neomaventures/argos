@@ -4,7 +4,7 @@ import {
   DataSource,
   Entity,
   PrimaryGeneratedColumn,
-  Repository,
+  type Repository,
 } from "typeorm"
 
 import { auditStore } from "../argos.store"

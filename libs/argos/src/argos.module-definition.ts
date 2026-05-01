@@ -5,7 +5,7 @@ import { ActorMiddleware } from "./middlewares/actor.middleware"
 
 const ARGOS_RAW_OPTIONS = Symbol("ARGOS_RAW_OPTIONS")
 
-export const { ConfigurableModuleClass, MODULE_OPTIONS_TOKEN } =
+export const { ConfigurableModuleClass } =
   new ConfigurableModuleBuilder<ArgosOptions>({
     optionsInjectionToken: ARGOS_RAW_OPTIONS,
   })

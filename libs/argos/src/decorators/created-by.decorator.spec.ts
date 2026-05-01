@@ -1,5 +1,10 @@
 import { faker } from "@faker-js/faker"
-import { DataSource, Entity, PrimaryGeneratedColumn, Repository } from "typeorm"
+import {
+  DataSource,
+  Entity,
+  PrimaryGeneratedColumn,
+  type Repository,
+} from "typeorm"
 
 import { auditStore } from "../argos.store"
 

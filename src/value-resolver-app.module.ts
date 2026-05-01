@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common"
 import { TypeOrmModule } from "@nestjs/typeorm"
 
-import { ArgosModule } from "../libs/argos/src"
+import { ArgosModule } from "@lib"
 
 import { WidgetController } from "./widgets/widget.controller"
 import { Widget } from "./widgets/widget.entity"
