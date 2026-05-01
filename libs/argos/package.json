@@ -1,19 +1,19 @@
 {
-  "name": "@neoma/package-template",
+  "name": "@neoma/argos",
   "version": "0.1.0",
-  "description": "{{PACKAGE_DESCRIPTION}}",
+  "description": "NestJS audit trails — who changed what, when, and what it looked like.",
   "author": "Shipdventures",
   "repository": {
     "type": "git",
-    "url": "{{REPO_URL}}"
+    "url": "https://github.com/neomaventures/argos"
   },
   "bugs": {
-    "url": "{{REPO_URL}}/issues"
+    "url": "https://github.com/neomaventures/argos/issues"
   },
-  "homepage": "{{REPO_URL}}#readme",
+  "homepage": "https://github.com/neomaventures/argos#readme",
   "keywords": [
     "nestjs",
-    "package-template",
+    "argos",
     "laravel",
     "neoma"
   ],
@@ -33,6 +33,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@nestjs/common": "11.x",
-    "@nestjs/core": "11.x"
+    "@nestjs/core": "11.x",
+    "typeorm": "^0.3.20"
   }
 }

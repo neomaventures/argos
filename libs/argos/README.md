@@ -69,8 +69,8 @@ That's it. `createdBy` is set on insert, `updatedBy` is set on every save.
 
 | Option | Type | Default | Description |
 |---|---|---|---|
-| `resolveActor` | `(req: Request) => string \| null \| undefined \| Promise<string \| null \| undefined>` | `undefined` | Extracts the actor from the request. Return `null` or `undefined` to use the default. |
-| `defaultActor` | `string` | `"system"` | Actor used when `resolveActor` is absent or returns `null` or `undefined`. |
+| `resolveActor` | `(req: Request) => string \| null \| Promise<string \| null>` | `undefined` | Extracts the actor from the request. Return `null` to use the default. |
+| `defaultActor` | `string` | `"system"` | Actor used when `resolveActor` is absent or returns `null`. |
 
 ### Actor format
 
@@ -84,5 +84,5 @@ Actors are prefixed strings -- not foreign keys:
 ## Known Constraints
 
 - **Must use `repository.save()` / `repository.remove()`** -- `manager.update()`, QueryBuilder, etc. bypass entity listeners silently.
-- **`@CreatedBy()` sets on insert** and is never overwritten on update.
+- **`@CreatedBy()` only sets on insert** when the column is `null`. It is never overwritten on update.
 - **`@UpdatedBy()` sets on every `save()`** -- both insert and update.
