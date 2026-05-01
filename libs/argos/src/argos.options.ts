@@ -1,7 +1,25 @@
 import { type Request } from "express"
 
+/**
+ * Injection token for {@link ArgosOptions}.
+ *
+ * Use this to inject the resolved options into your own providers:
+ *
+ * @example
+ * ```typescript
+ * @Injectable()
+ * export class MyService {
+ *   public constructor(
+ *     @Inject(ARGOS_OPTIONS) private readonly options: ArgosOptions,
+ *   ) {}
+ * }
+ * ```
+ */
 export const ARGOS_OPTIONS = Symbol("ARGOS_OPTIONS")
 
+/**
+ * Options for configuring the {@link ArgosModule}.
+ */
 export interface ArgosOptions {
   /**
    * The actor string used when `resolveActor` is not defined, returns
