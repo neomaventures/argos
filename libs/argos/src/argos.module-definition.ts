@@ -2,6 +2,7 @@ import { ConfigurableModuleBuilder } from "@nestjs/common"
 
 import { type ArgosOptions, ARGOS_OPTIONS } from "./argos.options"
 import { ActorMiddleware } from "./middlewares/actor.middleware"
+import { AuditSubscriber } from "./subscribers/audit.subscriber"
 
 const ARGOS_RAW_OPTIONS = Symbol("ARGOS_RAW_OPTIONS")
 
@@ -23,6 +24,7 @@ export const { ConfigurableModuleClass } =
           inject: [ARGOS_RAW_OPTIONS],
         },
         ActorMiddleware,
+        AuditSubscriber,
       ],
       exports: [...(definition.exports ?? []), ARGOS_OPTIONS],
     }))

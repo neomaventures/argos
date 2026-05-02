@@ -4,6 +4,8 @@ import { TypeOrmModule } from "@nestjs/typeorm"
 import { ArgosModule } from "@lib"
 
 import { TestAuditEvent } from "./audit-events/test-audit-event.entity"
+import { GadgetController } from "./gadgets/gadget.controller"
+import { Gadget } from "./gadgets/gadget.entity"
 import { WidgetController } from "./widgets/widget.controller"
 import { Widget } from "./widgets/widget.entity"
 
@@ -12,15 +14,15 @@ import { Widget } from "./widgets/widget.entity"
     TypeOrmModule.forRoot({
       type: "sqlite",
       database: ":memory:",
-      entities: [Widget, TestAuditEvent],
+      entities: [Widget, Gadget, TestAuditEvent],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([Widget]),
+    TypeOrmModule.forFeature([Widget, Gadget]),
     ArgosModule.forRoot({
       auditEvent: TestAuditEvent,
       resolveActor: (req) => req.headers["x-actor"] as string,
     }),
   ],
-  controllers: [WidgetController],
+  controllers: [WidgetController, GadgetController],
 })
 export class AuditTrailAppModule {}

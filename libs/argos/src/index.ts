@@ -6,5 +6,6 @@ export { type ArgosOptions, ARGOS_OPTIONS } from "./argos.options"
 export { type AuditableEvent } from "./interfaces/auditable-event.interface"
 
 // Decorators
+export { Audited } from "./decorators/audited.decorator"
 export { CreatedBy } from "./decorators/created-by.decorator"
 export { UpdatedBy } from "./decorators/updated-by.decorator"

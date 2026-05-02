@@ -1,7 +1,8 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
 
-import { CreatedBy, UpdatedBy } from "@lib"
+import { Audited, CreatedBy, UpdatedBy } from "@lib"
 
+@Audited()
 @Entity()
 export class Widget {
   @PrimaryGeneratedColumn("uuid")

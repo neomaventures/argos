@@ -5,6 +5,8 @@ import { type Request } from "express"
 import { type ArgosOptions, ArgosModule } from "@lib"
 
 import { TestAuditEvent } from "./audit-events/test-audit-event.entity"
+import { GadgetController } from "./gadgets/gadget.controller"
+import { Gadget } from "./gadgets/gadget.entity"
 import { WidgetController } from "./widgets/widget.controller"
 import { Widget } from "./widgets/widget.entity"
 
@@ -13,10 +15,10 @@ import { Widget } from "./widgets/widget.entity"
     TypeOrmModule.forRoot({
       type: "sqlite",
       database: ":memory:",
-      entities: [Widget, TestAuditEvent],
+      entities: [Widget, Gadget, TestAuditEvent],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([Widget]),
+    TypeOrmModule.forFeature([Widget, Gadget]),
     ArgosModule.forRootAsync({
       useFactory: (): ArgosOptions => ({
         auditEvent: TestAuditEvent,
@@ -24,6 +26,6 @@ import { Widget } from "./widgets/widget.entity"
       }),
     }),
   ],
-  controllers: [WidgetController],
+  controllers: [WidgetController, GadgetController],
 })
 export class AuditTrailAsyncAppModule {}
