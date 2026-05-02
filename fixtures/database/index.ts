@@ -1,15 +1,21 @@
-import { DataSource } from "typeorm"
+import { type EntitySchema, type MixedList, DataSource } from "typeorm"
+
+type EntityClass = new (...args: any[]) => any
 
 /**
  * Create a new datasource for testing that uses an in-memory SQLite database.
  *
- * @returns  An initialized datasource.
+ * @param entities - Entity classes or schemas to register. Defaults to a glob
+ *   that picks up all `*.entity.ts` files under `src/`.
+ * @returns An initialized datasource.
  */
-export const datasource = async (): Promise<DataSource> => {
+export const datasource = async (
+  entities?: MixedList<EntityClass | string | EntitySchema>,
+): Promise<DataSource> => {
   const dataSource = new DataSource({
     type: "sqlite",
     database: ":memory:",
-    entities: ["src/**/*.entity.ts"],
+    entities: entities ?? ["src/**/*.entity.ts"],
     synchronize: true,
   })
   return dataSource.initialize()

@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   HttpCode,
   HttpStatus,
   Param,
@@ -33,5 +34,12 @@ export class WidgetController {
     const widget = await this.repository.findOneByOrFail({ id })
     widget.name = body.name
     return this.repository.save(widget)
+  }
+
+  @Delete(":id")
+  @HttpCode(HttpStatus.NO_CONTENT)
+  public async remove(@Param("id") id: string): Promise<void> {
+    const widget = await this.repository.findOneByOrFail({ id })
+    await this.repository.remove(widget)
   }
 }

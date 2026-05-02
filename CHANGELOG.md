@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `AuditableEvent` interface — contract for consumer-provided audit event entities
+- `auditEvent` option on `ArgosOptions` — accepts a TypeORM entity class implementing `AuditableEvent`
+- `@Audited()` class decorator — marks entities for automatic audit tracking
+- TypeORM audit subscriber — writes full entity snapshots on create, update, and delete for `@Audited()` entities
+
 ## [0.1.0] - 2026-05-01
 
 ### Added

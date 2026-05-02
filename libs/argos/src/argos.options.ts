@@ -1,5 +1,7 @@
 import { type Request } from "express"
 
+import { type AuditableEvent } from "./interfaces/auditable-event.interface"
+
 /**
  * Injection token for {@link ArgosOptions}.
  *
@@ -51,4 +53,21 @@ export interface ArgosOptions {
   resolveActor?: (
     req: Request,
   ) => string | null | undefined | Promise<string | null | undefined>
+
+  /**
+   * A TypeORM entity class that implements {@link AuditableEvent}.
+   *
+   * When provided, Argos will write audit rows to this entity's table
+   * for every `@Audited()` entity change. The consumer owns the entity
+   * and its table schema.
+   *
+   * @example
+   * ```typescript
+   * ArgosModule.forRoot({
+   *   auditEvent: MyAuditEvent,
+   *   resolveActor: (req) => req.principal?.id ?? null,
+   * })
+   * ```
+   */
+  auditEvent?: new () => AuditableEvent
 }
